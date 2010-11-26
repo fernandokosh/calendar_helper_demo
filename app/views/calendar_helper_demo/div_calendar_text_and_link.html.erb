@@ -1,0 +1,10 @@
+<%=stylesheet_link_tag "/stylesheets/calendar/red/style.css" %>
+ 
+<%= calendar({:year => 2010, :month => 11}) do |d| 
+  if @listOfSpecialDays.include?(d)
+    [d.mday, {:class => "specialDay", :label => @listOfSpecialDetails[d.to_s][0][:label] } ]
+  else
+    [d.mday, {:class => "normalDay", :label => ''} ]
+  end
+ end %>
+
